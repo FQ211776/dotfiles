@@ -9,6 +9,7 @@ iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
 scoop bucket add extras
 scoop bucket add java
 scoop bucket add nerd-fonts
+scoop bucket add versions
 
 # install sudo to elevate privileges when needed
 scoop install sudo
