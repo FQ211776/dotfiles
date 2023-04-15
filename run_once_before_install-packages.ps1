@@ -20,6 +20,13 @@ scoop install starship
 # Install Fzf - Fuzzy finder
 scoop install fzf
 
+# install windows terminal
+scoop install windows-terminal
+scoop install extras/vcredist2022
+
+# install meld
+scoop install meld
+
 # install VIFM
 scoop install vifm
 
@@ -27,7 +34,6 @@ scoop install vifm
 scoop install neovim
 scoop install gcc
 scoop install mingw
-scoop install extras/vcredist2022
 scoop install winget
 
 # Neovim GUI <optional>
