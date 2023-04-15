@@ -24,6 +24,8 @@ scoop install vifm
 scoop install neovim
 scoop install gcc
 scoop install mingw
+scoop install extras/vcredist2022
+scoop install winget
 
 # Neovim GUI <optional>
 scoop install goneovim
@@ -37,7 +39,7 @@ scoop install vifm
 # Install gpg4win
 sudo scoop install gpg4win
 
-# 
+#
 scoop install hub
 
 # install diff-so-fancy
@@ -59,7 +61,7 @@ git clone https://github.com/NvChad/NvChad $HOME\AppData\Local\nvim --depth 1
 winget import --accept-source-agreements --accept-package-agreements $home\.local\share\chezmoi\winget.json
 
 # Refresh Path
-$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 
 # Install PowerShell Modules
 pwsh -NoLogo -NoProfile -Command {
