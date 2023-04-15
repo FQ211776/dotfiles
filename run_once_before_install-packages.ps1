@@ -1,5 +1,7 @@
+
 # install scoop
 #Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
 #iwr -useb get.scoop.sh | iex
 # scoop install git
 
@@ -69,8 +71,8 @@ pwsh -NoLogo -NoProfile -Command {
     install-Module posh-git  -Scope CurrentUser -Force
     Install-Module -Name PSFzf -Scope CurrentUser -Force
     Install-Module -Name PSReadLine -Scope CurrentUser -Force
-#    Set-PSReadLineOption -PredictionSource History
-#    Set-PSReadLineOption -PredictionViewStyle listView
+    #    Set-PSReadLineOption -PredictionSource History
+    #    Set-PSReadLineOption -PredictionViewStyle listView
 }
 sudo Install-Module -Name PowerShellGet -Force
 sudo Install-Module -Name z -AllowClobber
