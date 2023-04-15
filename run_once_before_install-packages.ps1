@@ -68,14 +68,13 @@ pwsh -NoLogo -NoProfile -Command {
     Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
     install-Module posh-git  -Scope CurrentUser -Force
     Install-Module -Name PSFzf -Scope CurrentUser -Force
-    Install-Module -Name Terminal-Icons -AcceptLicense
-    Install-Module -Name z -AcceptLicense
-    Install-Module -Name PowerShellGet -Force
-    Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force  -SkipPublisherCheck
-    Set-PSReadLineOption -PredictionSource History
-    Set-PSReadLineOption -PredictionViewStyle listView
+    Install-Module -Name PSReadLine -Scope CurrentUser -Force
+#    Set-PSReadLineOption -PredictionSource History
+#    Set-PSReadLineOption -PredictionViewStyle listView
 }
-
+sudo Install-Module -Name PowerShellGet -Force
+sudo Install-Module -Name z -AllowClobber
+sudo Install-Module -Name Terminal-Icons
 sudo Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 
 # Setup Node/Yarn
