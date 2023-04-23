@@ -36,6 +36,7 @@ scoop install neovim
 scoop install gcc
 scoop install mingw
 scoop install winget
+scoop install gawk
 
 # Neovim GUI <optional>
 scoop install goneovim
