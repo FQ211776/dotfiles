@@ -2,8 +2,9 @@
 # install scoop
 #Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
-#iwr -useb get.scoop.sh | iex
+iwr -useb get.scoop.sh | iex
 # scoop install git
+scoop install ghq
 
 # optional buckets
 scoop bucket add extras
@@ -51,6 +52,7 @@ sudo scoop install gpg4win
 
 #
 scoop install hub
+scoop install ghq
 
 # install diff-so-fancy
 scoop install diff-so-fancy
