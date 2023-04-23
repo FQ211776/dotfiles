@@ -41,6 +41,7 @@ scoop install goneovim
 scoop install neovim-qt
 scoop install fvim
 scoop install neovide
+scoop install tree-sitter
 
 # install VIFM
 scoop install vifm
@@ -96,3 +97,6 @@ npm install --location=global yarn
 Invoke-WebRequest -Uri "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaCode.zip" -OutFile ~/Downloads/CascadiaCode.zip
 Expand-Archive -Path ~/Downloads/CascadiaCode.zip -DestinationPath ~/Downloads/CascadiaCode
 & "~\Downloads\CascadiaCode\Caskaydia Cove Nerd Font Complete Mono Windows Compatible Regular.otf"
+
+npm i -g typescript-language-server
+npm install -g @fsouza/prettierd
