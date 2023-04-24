@@ -112,6 +112,7 @@ Expand-Archive -Path ~/Downloads/CascadiaCode.zip -DestinationPath ~/Downloads/C
 & "~\Downloads\CascadiaCode\Caskaydia Cove Nerd Font Complete Mono Windows Compatible Regular.otf"
 
 npm i -g typescript-language-server
+npm install -g typescript-language-server typescript
 npm install -g @fsouza/prettierd
 npm i -g pyright
 
