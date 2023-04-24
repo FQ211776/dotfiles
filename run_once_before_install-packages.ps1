@@ -43,6 +43,7 @@ scoop install mingw
 scoop install winget
 scoop install gawk
 scoop install Cygwin
+scoop install lua-language-server
 
 # Neovim GUI <optional>
 scoop install goneovim
