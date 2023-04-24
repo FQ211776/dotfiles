@@ -113,7 +113,11 @@ Expand-Archive -Path ~/Downloads/CascadiaCode.zip -DestinationPath ~/Downloads/C
 
 npm i -g typescript-language-server
 npm install -g typescript-language-server typescript
+
 npm install -g @fsouza/prettierd
+npm i -g  @fsouza/prettierd
+#:MasonInstall prettierd
+
 npm i -g pyright
 
 # eslint_d correccion a error en neovim
