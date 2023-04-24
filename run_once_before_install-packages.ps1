@@ -113,3 +113,4 @@ Expand-Archive -Path ~/Downloads/CascadiaCode.zip -DestinationPath ~/Downloads/C
 npm i -g typescript-language-server
 npm install -g @fsouza/prettierd
 npm i -g pyright
+npm install -g eslint_d
