@@ -44,6 +44,8 @@ scoop install winget
 scoop install gawk
 scoop install Cygwin
 scoop install lua-language-server
+scoop install simple-http-server
+scoop install texlab
 
 # Neovim GUI <optional>
 scoop install goneovim
