@@ -47,6 +47,7 @@ scoop install lua-language-server
 scoop install simple-http-server
 scoop install texlab
 
+
 # Neovim GUI <optional>
 scoop install goneovim
 scoop install neovim-qt
@@ -113,4 +114,8 @@ Expand-Archive -Path ~/Downloads/CascadiaCode.zip -DestinationPath ~/Downloads/C
 npm i -g typescript-language-server
 npm install -g @fsouza/prettierd
 npm i -g pyright
+
+# eslint_d correccion a error en neovim
 npm install -g eslint_d
+npm i -g eslint_d
+#installed with Mason :MasonInstall eslint_d
