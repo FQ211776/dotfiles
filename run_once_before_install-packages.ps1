@@ -31,6 +31,10 @@ scoop install meld
 # install VIFM
 scoop install vifm
 
+# install lf (ranger for windows like)
+scoop install lf
+
+
 # install neovim and tools needed
 scoop install neovim
 scoop install gcc
