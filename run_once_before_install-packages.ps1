@@ -37,6 +37,7 @@ scoop install lf
 
 # install neovim and tools needed
 scoop install neovim
+scoop install lua
 scoop install gcc
 scoop install mingw
 scoop install winget
