@@ -137,3 +137,5 @@ npm install -D postcss-cli@latest cssnano@latest
 npm install touch-cli -g
 npm install -g win-node-env
 #https://www.steadygo.digital/insights/setting-up-a-tailwind-css-project-101/
+
+npm i -g eslint_d prettier
