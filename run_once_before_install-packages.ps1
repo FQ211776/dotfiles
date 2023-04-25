@@ -125,3 +125,10 @@ npm i -g pyright
 npm install -g eslint_d
 npm i -g eslint_d
 #installed with Mason :MasonInstall eslint_d
+
+npm install -g tailwindcss
+npm i -g tailwindcss
+yarn add tailwindcss@^1
+npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
+npm install -D postcss-cli@latest cssnano@latest
+npm install touch-cli -g
