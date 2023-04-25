@@ -15,6 +15,9 @@ scoop bucket add versions
 # install sudo to elevate privileges when needed
 scoop install sudo
 
+ # an open-source keystroke visualize
+scoop install keyviz
+
 # install starship as a default prompt
 scoop install starship
 
