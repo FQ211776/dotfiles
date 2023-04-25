@@ -132,3 +132,4 @@ yarn add tailwindcss@^1
 npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 npm install -D postcss-cli@latest cssnano@latest
 npm install touch-cli -g
+npm install -g win-node-env
