@@ -139,3 +139,4 @@ npm install -g win-node-env
 #https://www.steadygo.digital/insights/setting-up-a-tailwind-css-project-101/
 
 npm i -g prettier
+npm i -g postcss postcss-cli 
