@@ -46,7 +46,8 @@ scoop install Cygwin
 scoop install lua-language-server
 scoop install simple-http-server
 scoop install texlab
-
+scoop install ripgrep
+scoop install rga
 
 # Neovim GUI <optional>
 scoop install goneovim
