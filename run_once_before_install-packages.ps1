@@ -1,8 +1,8 @@
 
 # install scoop
-#Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
-iwr -useb get.scoop.sh | iex
+Set-ExecutionPolicy RemoteSigned -scope CurrentUser
+#iex "& { $(irm https://aka.ms/install-powershell.ps1) } -UseMSI"
+#iwr -useb get.scoop.sh | iex
 # scoop install git
 scoop install ghq
 
@@ -79,7 +79,7 @@ scoop install chezmoi
 
 git clone https://github.com/wbthomason/packer.nvim $env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim
 git clone https://github.com/wbthomason/packer.nvim "$env:LOCALAPPDATA\nvim-data\site\pack\packer\start\packer.nvim"
-git clone https://github.com/NvChad/NvChad $HOME\AppData\Local\nvim --depth 1
+#git clone https://github.com/NvChad/NvChad $HOME\AppData\Local\nvim --depth 1
 
 # to launch nvim the first time
 #nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
