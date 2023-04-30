@@ -12,6 +12,9 @@ scoop bucket add java
 scoop bucket add nerd-fonts
 scoop bucket add versions
 
+scoop install java/oraclejdk-lts 
+scoop install java/openjdk11
+
 # install sudo to elevate privileges when needed
 scoop install sudo
 
@@ -140,3 +143,6 @@ npm install -g win-node-env
 
 npm i -g prettier
 npm i -g postcss postcss-cli 
+
+# npm i -g neovim intelephense bash-language-server dockerfile-language-server-nodejs yaml-language-server typescript typescript-language-server vscode-langservers-extracted @fsouza/prettierd
+# https://github.com/emretuna/.dotfiles/tree/main
