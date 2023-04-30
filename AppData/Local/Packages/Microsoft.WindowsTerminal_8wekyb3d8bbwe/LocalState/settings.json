@@ -40,11 +40,12 @@
         {
             "backgroundImage": "ms-appdata:///local/background.gif",
             "backgroundImageOpacity": 0.4,
-            "colorScheme": "Dracula",
+            "colorScheme": "One Half Dark r",
             "experimental.retroTerminalEffect": false,
             "font": 
             {
-                "face": "CaskaydiaCove NFM"
+                "face": "CaskaydiaCove NFM",
+                "size": 11.0
             },
             "opacity": 10,
             "startingDirectory": "c:/",
