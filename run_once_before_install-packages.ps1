@@ -29,6 +29,7 @@ scoop install fzf
 
 # install windows terminal
 scoop install windows-terminal
+reg import "C:\Users\juani\scoop\apps\windows-terminal\current\install-context.reg"
 scoop install extras/vcredist2022
 
 # install meld
