@@ -1,0 +1,226 @@
+# -- ALIASES -------------------------------------------------------------------
+
+# the most importants here
+alias treed="gt -d"
+alias blue="redshift -P -O 4200 -b 0.8"
+alias notblue="redshift -x"
+alias tmux-clean="~/.tmux/plugins/tpm/bin/install_plugins && tmux source ~/.config/tmux/tmux.conf"
+alias meldme="meld ."
+alias lg="lazygit"
+alias deli="dump -p -s"    # del files via fzf
+alias dela="dump -p"       # del files
+alias delf="dump -r"       # del folders
+alias delc="dump -c"       # permanently remove files from ../dump/trash
+alias delu="dump -u -f -s" #  undo/reset files from ../dump/trash
+alias ra="ranger"
+
+
+alias caca="cacafire"
+
+# -- FORGIT ALIASES ------------------------------------------------------------
+
+alias forgit_log=glo
+alias forgit_diff=gd
+alias forgit_add=ga
+alias forgit_reset_head=grh
+alias forgit_ignore=gi
+alias forgit_checkout_file=gcf
+alias forgit_checkout_branch=gcb
+alias forgit_branch_delete=gbd
+alias forgit_checkout_tag=gct
+alias forgit_checkout_commit=gco
+alias forgit_revert_commit=grc
+alias forgit_clean=gclean
+alias forgit_stash_show=gss
+alias forgit_stash_push=gsp
+alias forgit_cherry_pick=gcp
+alias forgit_rebase=grb
+alias forgit_blame=gbl
+alias forgit_fixup=gfu
+
+# -- DOTBARE ALIASES ------------------------------------------------------------
+
+alias ds='dotbare s'       # git status
+alias ddiff='dotbare fadd' # Comparar cambios y stash
+#
+alias daf="dotbare fadd -f" # agregar archivos
+alias dad="dotbare fadd -d" # agregar directorios
+#
+alias dresset="dotbare freset" # quita archivos del stage (git add )
+#
+alias dcm="dotbare commit -m" # espera el mensaje para el commit
+alias dsr="dotbare freset"    #unstage files after dotbare add
+#
+alias dp='dotbare push'
+#
+alias dcc='dotbare fcheckout'    #discard changes made
+alias dcb='dotbare fcheckout -b' #escoge una rama para checkout
+#
+alias dhard='dotbare reset --hard master' # DANGER: descarta los cambios locales
+#
+alias dedit='dotbare fedit' # edita un archivo incluido en los repositorios
+#
+alias dlog='dotbare flog' # interactive log
+# revert: revert the selected commit
+# reset: reset HEAD to the selected commit --mixed
+# edit: edit selected commit --rebase (reword commit)
+# checkout: checkout the selected commit
+#
+alias dst='dotbare stash'      # crea un WIP stash
+alias dsta='dotbare fstash'    # aplica un WIP stash
+alias dstd='dotbare fstash -d' # elimina un o varios WIP stash
+alias ddoc='docker container run -it --rm --name dotbare kazhala/dotbare:latexitest'
+alias drob='docker container run -it --rm --name dotbare-rob  mi-imagen-arch'
+#
+# alias forgit_log=glo
+# alias forgit_diff=gd
+# alias forgit_add=ga
+# alias forgit_reset_head=grh
+# alias forgit_ignore=gi
+# alias forgit_checkout_file=gcf
+# alias forgit_checkout_branch=gcb
+# alias forgit_branch_delete=gbd
+# alias forgit_checkout_tag=gct
+# alias forgit_checkout_commit=gco
+# alias forgit_revert_commit=grc
+# alias forgit_clean=gclean
+# alias forgit_stash_show=gss
+# alias forgit_stash_push=gsp
+# alias forgit_cherry_pick=gcp
+# alias forgit_rebase=grb
+# alias forgit_blame=gbl
+# alias forgit_fixup=gfu
+
+# Basic
+alias vim="nvim"
+alias py3="python3"
+alias tree="tree -I '.git|node_modules|bower_components|.DS_Store|build'"
+alias ..="cd .."
+alias mv="mv -v"
+alias cp="cp -v"
+alias rm="rm -v"
+alias grep="grep --color=auto"
+alias fs="bmux"
+alias tf="terraform"
+alias svenv="source venv/bin/activate"
+
+# Replace stuff with bat
+alias cat='bat '
+alias rg='batgrep '
+alias man='tldr '
+
+#iso and version used to install XeroLinux
+alias iso="cat /etc/dev-rel | awk -F '=' '/ISO/ {print $2}'"
+
+#systeminfo
+alias probe='sudo -E hw-probe -all -upload'
+
+# Replace ls with eza
+alias ls='eza -al --color=always --group-directories-first --icons' # preferred listing
+alias la='eza -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='eza -l --color=always --group-directories-first --icons'  # long format
+alias lt='eza -aT --color=always --group-directories-first --icons' # tree listing
+alias l='eza -lah --color=always --group-directories-first --icons' # tree listing
+
+#pacman unlock
+alias unlock='sudo rm /var/lib/pacman/db.lck'
+
+#available free memory
+alias free='free -mt'
+
+#continue download
+alias wget='wget -c '
+
+#readable output
+alias df='df -h'
+
+#userlist
+alias userlist='cut -d: -f1 /etc/passwd'
+
+#Pacman for software managment
+alias search='pacman -F '
+alias remove='sudo pacman -Rs '
+alias install='sudo pacman -S '
+alias linstall='sudo pacman -U *.pkg.tar.zst'
+alias update='sudo pacman -Syyu && flatpak update'
+alias clrcache='sudo pacman -Scc'
+alias orphans='sudo pacman -Rns $(pacman -Qtdq)'
+
+# Paru/Yay stuff
+alias pget='paru -S '
+alias yget='yay -S '
+alias yrem='yay -R '
+alias prem='paru -R '
+alias yup='yay -Syyu'
+alias pup='paru -Syyu'
+
+#Bash aliases
+alias mkfile='touch '
+alias jctl='journalctl -p 3 -xb'
+alias breload='cd ~ && source ~/.bashrc'
+alias zreload='cd ~ && source ~/.zshrc'
+alias pingme='ping -c64 github.com'
+alias cls='clear && neofetch'
+alias traceme='traceroute github.com'
+
+#youtube-dl
+alias yta-best="yt-dlp --extract-audio --audio-format best "
+alias ytv-best="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/bestvideo+bestaudio' --merge-output-format mp4 "
+
+#GiT  command
+alias gcl='git clone '
+alias gpl='git pull'
+
+#Copy/Remove files/dirs
+alias rmd='rm -r'
+alias srm='sudo rm'
+alias srmd='sudo rm -r'
+alias cpd='cp -R'
+alias scpd='sudo cp -R'
+
+#nano
+alias nz='$EDITOR ~/.zshrc'
+alias nbashrc='nano ~/.bashrc'
+alias nzshrc='nano ~/.zshrc'
+alias nsddm='sudo nano /etc/sddm.conf'
+alias pconf='sudo nano /etc/pacman.conf'
+alias mkpkg='sudo nano /etc/makepkg.conf'
+alias ngrub='sudo nano /etc/default/grub'
+alias smbconf='sudo nano /etc/samba/smb.conf'
+alias nlightdm='sudo $EDITOR /etc/lightdm/lightdm.conf'
+alias nmirrorlist='sudo nano /etc/pacman.d/mirrorlist'
+alias nsddmk='sudo $EDITOR /etc/sddm.conf.d/kde_settings.conf'
+
+#cd/ aliases
+alias home='cd ~'
+alias etc='cd /etc/'
+alias music='cd ~/Music'
+alias vids='cd ~/Videos'
+alias conf='cd ~/.config'
+alias desk='cd ~/Desktop'
+alias pics='cd ~/Pictures'
+alias dldz='cd ~/Downloads'
+alias docs='cd ~/Documents'
+alias sapps='cd /usr/share/applications'
+alias lapps='cd ~/.local/share/applications'
+
+#verify signature for isos
+alias gpg-check='gpg2 --keyserver-options auto-key-retrieve --verify'
+
+#receive the key of a developer
+alias gpg-retrieve='gpg2 --keyserver-options auto-key-retrieve --receive-keys'
+
+#Recent Installed Packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+alias riplong="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -3000 | nl"
+
+#Package Info
+alias info='sudo pacman -Si '
+alias infox='sudo pacman -Sii '
+
+##Refresh Keys
+alias rkeys='sudo pacman-key --refresh-keys'
+
+#shutdown or reboot
+alias sr='sudo reboot'
+alias ssn='sudo shutdown now'
