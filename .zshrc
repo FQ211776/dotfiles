@@ -9,7 +9,10 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git aliases archlinux branch github zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-interactive-cd zsh-navigation-tools fzf-tab zsh-plugin-reload)
+# Install missing plugins (assuming you use Oh My Zsh)
+
+
+plugins=(git aliases archlinux branch github  zsh-interactive-cd zsh-navigation-tools)
 source $ZSH/oh-my-zsh.sh
 
 # -- ZINIT ---------------------------------------------------------------------
@@ -41,6 +44,7 @@ bindkey "^d" dotbare-fedit' \
 kazhala/dotbare \
 kazhala/bmux \
 kazhala/dump-cli \
+aubreypwd/zsh-plugin-reload \
 https://github.com/kazhala/scripts/blob/master/shell/fbookmark \
 https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh \
 atload'bindkey -M vicmd "k" history-substring-search-up;
@@ -64,11 +68,9 @@ eval "$(register-python-argcomplete pipx)"' \
 
 source ~/.zshrc_aliases
 source ~/.zshrc_functions
-source ~/.zshrc_env
 source ~/.zshrc_path_exports
-source /usr/share/zsh/plugins/emoji-cli/emoji-cli.zsh
 source /usr/share/zsh/plugins/forgit/forgit.plugin.zsh
-
+source ~/.git-flow-completion.zsh
 
 if command -v zoxide > /dev/null; then
   eval "$(zoxide init bash)"
@@ -220,8 +222,5 @@ bindkey "\ed" ffd-d-invoke
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
- eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/tokyonight_storm.omp.json)"
+ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/RobertoFlores.omp.json)"
 # eval "$(starship init zsh)"
-export NOTES_DIR=/home/the_primeagen/Projects/notes
-
-export PATH=$PATH:/home/the_primeagen/.spicetify

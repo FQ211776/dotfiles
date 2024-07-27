@@ -40,6 +40,20 @@ alias forgit_fixup=gfu
 
 # -- DOTBARE ALIASES ------------------------------------------------------------
 
+dotbare_full_paths() {
+  # Agregar un argumento opcional para filtrar por tipo de archivo
+  # dotbare_full_paths: Muestra todos los archivos.
+  # dotbare_full_paths py: Muestra solo los archivos con extensión .py.
+
+  if [[ -n "$1" ]]; then
+    dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | grep "$1" | awk -v home="${DOTBARE_TREE}/" '{print home $0}'
+  else
+    dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | awk -v home="${DOTBARE_TREE}/" '{print home $0}'
+  fi
+}
+ 
+
+
 alias ds='dotbare s'       # git status
 alias ddiff='dotbare fadd' # Comparar cambios y stash
 #

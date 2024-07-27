@@ -12,6 +12,10 @@ export FBOOKMARK_LOCATION="${XDG_CONFIG_HOME:-$HOME/.config}/fbookmark"
 #export DOCKER_HOST=unix:///run/user/1000/docker.sock
 export DOCKER_HOST=unix:///var/run/docker.sock
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export NOTES_DIR=$HOME/Dropbox/notes
+export PATH=$PATH:$HOME/.spicetify
+
+. "$HOME/.cargo/env"
 
 # -- SYSTEM ENV ----------------------------------------------------------------
 
@@ -27,12 +31,19 @@ export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
 export RUSTUP_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/rustup"
 export LS_COLORS="$(vivid generate molokai)"
 export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export NVM_DIR="$HOME/.nvm"
+# Luarocks bin path
+[ -d ${HOME}/.luarocks/bin ] && {
+  export PATH="${HOME}/.luarocks/bin${PATH:+:${PATH}}"
+}
 
+# -- LAZYMAN -------------------------------------------------------------------
 
-# -- TEMP PATH ------------------------------------------------------------------
-
-export PATH=$HOME/.config/gigachad_wizards_programmers/Roberto_Flores/bin:$PATH
-export PATH=$HOME/.config/gigachad_wizards_programmers/Roberto_Flores/bin_test:$PATH
-export PATH=$HOME/.config/gigachad_wizards_programmers/Roberto_Flores/bin_not_mine:$PATH
-export PATH=$HOME/.config/gigachad_wizards_programmers/Roberto_Flores/bin_test_not_mine:$PATH
-export PATH=$HOME/.config/gigachad_wizards_programmers/NickNissi/bin:$PATH
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+# Source the Lazyman shell initialization for aliases and nvims selector
+# shellcheck source=.config/nvim-Lazyman/.lazymanrc
+[ -f ~/.config/nvim-Lazyman/.lazymanrc ] && source ~/.config/nvim-Lazyman/.lazymanrc
+# Source the Lazyman .nvimsbind for nvims key binding
+# shellcheck source=.config/nvim-Lazyman/.nvimsbind
+[ -f ~/.config/nvim-Lazyman/.nvimsbind ] && source ~/.config/nvim-Lazyman/.nvimsbind
