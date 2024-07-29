@@ -218,7 +218,7 @@ bindkey "^g" fm-invoke
 zle -N ffd-d-invoke _run_ffd_d
 bindkey "\ed" ffd-d-invoke
 
-
+source <(jj util completion zsh)
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

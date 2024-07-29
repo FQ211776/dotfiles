@@ -14,7 +14,7 @@ export DOCKER_HOST=unix:///var/run/docker.sock
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export NOTES_DIR=$HOME/Dropbox/notes
 export PATH=$PATH:$HOME/.spicetify
-
+export PATH="/opt/brew/bin:$PATH"
 . "$HOME/.cargo/env"
 
 # -- SYSTEM ENV ----------------------------------------------------------------
