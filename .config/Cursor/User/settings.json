@@ -1,0 +1,23 @@
+{
+    "window.commandCenter": false,
+    "simple-project-switcher.directory": "~/Dropbox/final/",
+    /**
+      * Better Defaults - Esta sección contiene configuraciones que mejoran el comportamiento predeterminado de VS Code.
+      **/
+    "editor.copyWithSyntaxHighlighting": false, // Desactiva el copiado con resaltado de sintaxis
+    "diffEditor.ignoreTrimWhitespace": false, // No ignora los espacios en blanco al comparar archivos
+    "editor.emptySelectionClipboard": false, // Desactiva la vista previa de archivos al hacer clic en ellos
+    "workbench.editor.enablePreview": false,
+    "window.newWindowDimensions": "offset", // Las nuevas ventanas heredan las dimensiones de la ventana principal
+    "editor.multiCursorModifier": "alt", // Cambia el modificador para múltiples cursores a alt
+    "files.trimTrailingWhitespace": true, // Elimina los espacios en blanco al final de las líneas al guardar
+    "diffEditor.renderSideBySide": false, // Muestra las diferencias de archivos en línea, no lado a lado
+    "editor.snippetSuggestions": "top", // Muestra las sugerencias de fragmentos de código en la parte superior
+    "editor.detectIndentation": false, // Desactiva la detección automática de sangría
+    "window.nativeFullScreen": false, // Desactiva el modo de pantalla completa nativo
+    "files.insertFinalNewline": true, // Inserta una nueva línea al final del archivo al guardar
+    "files.trimFinalNewlines": true, // Oculta la barra de actividades (la barra lateral con los iconos de acceso rápido)
+    /**
+      *
+      **/
+}
