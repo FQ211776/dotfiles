@@ -24,6 +24,15 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "docker",
+          "style": "plain",
+          "foreground": "p:docker-blue",
+          "template": " \uF308 ",
+          "properties": {
+            "display_format": "icon"
+          }
+        },
+        {
           "type": "path",
           "style": "plain",
           "foreground": "p:terminal-magenta",
