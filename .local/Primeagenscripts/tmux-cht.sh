@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+# mira el video de thePrimeagen para entender como funciona
+# https://www.youtube.com/watch?v=hJzqEAf2U4I
+
 selected=`cat ~/.tmux-cht-languages ~/.tmux-cht-command | fzf`
 if [[ -z $selected ]]; then
     exit 0
@@ -12,4 +15,3 @@ if grep -qs "$selected" ~/.tmux-cht-languages; then
 else
     tmux neww bash -c "curl -s cht.sh/$selected~$query | less"
 fi
-
