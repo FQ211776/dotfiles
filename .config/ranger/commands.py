@@ -48,7 +48,7 @@ class meld_diff_files(Command):
         file2 = files[1].path
 
         # Ejecutar el comando Meld
-        self.fm.run(["meld", file1, file2])            
+        self.fm.run(["meld", file1, file2])
 
 class dumpput(Command):
     """dump put"""
@@ -177,7 +177,7 @@ class fzf_find_dir(Command):
 #     Busca archivos y directorios sin límite de profundidad y los selecciona en Ranger.
 #     Muestra una vista previa de los archivos con sintaxis coloreada utilizando bat.
 #     """
-# 
+#
 #     def execute(self):
 #         search = self.fm.execute_command(
 #             "fzf --preview 'bat --style=numbers --color=always {}'",

@@ -1,5 +1,55 @@
 # -- PATH ----------------------------------------------------------------------
 
+
+# Combierte caps en ctrl
+setxkbmap -option caps:ctrl_modifier
+
+# Cargar configuración de Xresources
+if [ -f ~/.Xresources ]; then
+    xrdb -merge ~/.Xresources
+fi
+
+
+# thePrimeagen exports
+export PATH="$HOME/.zig:$PATH"
+export PATH="$HOME/.local/.npm-global/bin:$PATH"
+export PATH="$HOME/.local/Primeagenscripts/:$PATH"
+export PATH="$HOME/.local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/personal/bin:$PATH"
+export PATH="$HOME/.deno/bin:$PATH"
+
+source  ~/.local/share/fzf/key-bindings.zsh
+bindkey -s ^t "fzf-file-widget"
+# Ctrl-T: fzf-file-widget
+# Descripción: Abre una interfaz de fzf para buscar y seleccionar archivos y directorios.
+# Los paths seleccionados se pegan en la línea de comandos.
+
+bindkey -s ^i "fzf-cd-widget\n"
+# ctrl-u: fzf-cd-widget
+# Descripción: Abre una interfaz de fzf para buscar y seleccionar directorios.
+# El shell cambia al directorio seleccionado.
+
+bindkey -s ^r "fzf-history-widget"
+# Ctrl-R: fzf-history-widget
+# Descripción: Abre una interfaz de fzf para buscar y seleccionar comandos desde el historial de comandos. El comando seleccionado se pega en la línea de comandos.
+
+source /usr/share/doc/fzf/examples/completion.zsh
+
+export VIM="nvim"
+export DOTFILES=$HOME/.dotfiles
+export GIT_EDITOR=$VIM
+export XDG_CONFIG_HOME=$HOME/.config
+
+
+PERSONAL=$XDG_CONFIG_HOME/personal
+source $PERSONAL/env
+for i in `find -L $PERSONAL`; do
+    source $i
+done
+
+
+
 export PATH="$HOME/bin:/usr/local/bin:$HOME/.local/bin:$HOME/.bin:$PATH"
 export PATH="$HOME/Dropbox/Developer/bin:$PATH"
 export PATH="$HOME/Dropbox/Developer/bin_test:$PATH"

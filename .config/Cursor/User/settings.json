@@ -1,23 +1,617 @@
 {
-    "window.commandCenter": false,
-    "simple-project-switcher.directory": "~/Dropbox/final/",
-    /**
-      * Better Defaults - Esta sección contiene configuraciones que mejoran el comportamiento predeterminado de VS Code.
-      **/
-    "editor.copyWithSyntaxHighlighting": false, // Desactiva el copiado con resaltado de sintaxis
-    "diffEditor.ignoreTrimWhitespace": false, // No ignora los espacios en blanco al comparar archivos
-    "editor.emptySelectionClipboard": false, // Desactiva la vista previa de archivos al hacer clic en ellos
-    "workbench.editor.enablePreview": false,
-    "window.newWindowDimensions": "offset", // Las nuevas ventanas heredan las dimensiones de la ventana principal
-    "editor.multiCursorModifier": "alt", // Cambia el modificador para múltiples cursores a alt
-    "files.trimTrailingWhitespace": true, // Elimina los espacios en blanco al final de las líneas al guardar
-    "diffEditor.renderSideBySide": false, // Muestra las diferencias de archivos en línea, no lado a lado
-    "editor.snippetSuggestions": "top", // Muestra las sugerencias de fragmentos de código en la parte superior
-    "editor.detectIndentation": false, // Desactiva la detección automática de sangría
-    "window.nativeFullScreen": false, // Desactiva el modo de pantalla completa nativo
-    "files.insertFinalNewline": true, // Inserta una nueva línea al final del archivo al guardar
-    "files.trimFinalNewlines": true, // Oculta la barra de actividades (la barra lateral con los iconos de acceso rápido)
-    /**
-      *
-      **/
+  "window.commandCenter": false,
+  "simple-project-switcher.directory": "/home/the_primeagen/Dropbox/python/",
+  /**
+    * Better Defaults - Esta sección contiene configuraciones que mejoran el comportamiento predeterminado de VS Code.
+    **/
+  "editor.copyWithSyntaxHighlighting": false, // Desactiva el copiado con resaltado de sintaxis
+  "diffEditor.ignoreTrimWhitespace": false, // No ignora los espacios en blanco al comparar archivos
+  "editor.emptySelectionClipboard": false, // Desactiva la vista previa de archivos al hacer clic en ellos
+  "workbench.editor.enablePreview": false,
+  "window.newWindowDimensions": "offset", // Las nuevas ventanas heredan las dimensiones de la ventana principal
+  "editor.multiCursorModifier": "alt", // Cambia el modificador para múltiples cursores a alt
+  "files.trimTrailingWhitespace": true, // Elimina los espacios en blanco al final de las líneas al guardar
+  "diffEditor.renderSideBySide": false, // Muestra las diferencias de archivos en línea, no lado a lado
+  "editor.snippetSuggestions": "top", // Muestra las sugerencias de fragmentos de código en la parte superior
+  "editor.detectIndentation": false, // Desactiva la detección automática de sangría
+  "window.nativeFullScreen": false, // Desactiva el modo de pantalla completa nativo
+  "files.insertFinalNewline": true, // Inserta una nueva línea al final del archivo al guardar
+  "files.trimFinalNewlines": true,
+  "editor.guides.bracketPairs": "active", // Oculta las guías de pares de corchetes
+  "workbench.sideBar.location": "right", // Mueve la barra lateral (explorador de archivos, búsqueda, etc.) al lado derecho
+  "workbench.statusBar.visible": false, // Oculta la barra de estado (la barra inferior con información del archivo, idioma, etc.)
+  "workbench.editor.showTabs": "single", // Oculta las guías de sangría verticales
+  "editor.minimap.enabled": false, // Desactiva el minimapa (la vista previa en miniatura del código)
+  "editor.lineNumbers": "off", // Oculta los números de línea
+  /**
+    * Silence The Noise - Esta sección contiene configuraciones que minimizan las distracciones visuales en VS Code.
+    **/
+  "breadcrumbs.enabled": false, // Desactiva la ruta de navegación (breadcrumbs)
+  "scm.diffDecorations": "all", // Default: none Desactiva las decoraciones de diferencias en el control de versiones
+  "editor.hover.enabled": false, // Desactiva las sugerencias al pasar el cursor sobre el código
+  "editor.matchBrackets": "never", // Desactiva el resaltado de paréntesis coincidentes
+  "workbench.tips.enabled": false, // Desactiva los consejos y sugerencias de VS Code
+  "editor.colorDecorators": false, // Desactiva los decoradores de colores (p. ej., colores de variables)
+  "git.decorations.enabled": true, // default: false Desactiva las decoraciones de Git (p. ej., cambios en archivos)
+  "workbench.startupEditor": "none", // No abre ningún editor al iniciar VS Code
+  "editor.lightbulb.enabled": "off", // Desactiva las sugerencias de bombillas (acciones rápidas)
+  "editor.selectionHighlight": false, // Desactiva el resaltado de otras ocurrencias de la palabra seleccionada
+  "editor.overviewRulerBorder": false, // Elimina el borde del minimapa
+  "editor.renderLineHighlight": "none", // Desactiva el resaltado de la línea actual
+  "editor.occurrencesHighlight": "off", // Desactiva el resaltado de ocurrencias de palabras
+  "problems.decorations.enabled": false, // Desactiva las decoraciones de problemas (errores y advertencias)
+  "editor.renderControlCharacters": false, // Oculta los caracteres de control (p. ej., espacios, tabulaciones)
+  "editor.hideCursorInOverviewRuler": true, // Oculta el cursor en el minimapa
+  "editor.gotoLocation.multipleReferences": "goto", // Navega directamente a la primera referencia al hacer clic en "Go to Definition"
+  "editor.gotoLocation.multipleDefinitions": "goto", // Navega directamente a la primera definición al hacer clic en "Go to Definition"
+  "editor.gotoLocation.multipleDeclarations": "goto", // Navega directamente a la primera declaración al hacer clic en "Go to Definition"
+  "workbench.editor.enablePreviewFromQuickOpen": false, // Desactiva la vista previa en Quick Open
+  "editor.gotoLocation.multipleImplementations": "goto", // Navega directamente a la primera implementación al hacer clic en "Go to Definition"
+  "editor.gotoLocation.multipleTypeDefinitions": "goto", // Navega directamente a la primera definición de tipo al hacer clic en "Go to Definition"
+  /**
+    * Typography - Esta sección contiene configuraciones relacionadas con la apariencia del texto en VS Code.
+    **/
+  "workbench.colorTheme": "Palenight Operator", // Establece el tema de color a "Palenight Operator"
+  "editor.fontFamily": "'Operator-Caska'", // Establece la fuente del editor
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "entity.name.type.class", // class names
+          "keyword", // import, export, return
+          "constant", // String, Number, Boolean..., this, super
+          "storage.type",
+          "variable.language.this.cpp"
+        ],
+        "settings": {
+          "fontStyle": "italic bold" // comments are italic
+        }
+      },
+    ]
+  },
+  "editor.fontLigatures": true,
+  "editor.fontSize": 12, // Establece el tamaño de fuente del editor a 12
+  "editor.lineHeight": 0, // Establece la altura de línea del editor a 15
+  "editor.suggestFontSize": 15, // Establece el tamaño de fuente de las sugerencias a 15
+  "editor.suggestLineHeight": 28, // Establece la altura de línea de las sugerencias a 28
+  "terminal.integrated.fontSize": 16, // Establece el tamaño de fuente del terminal integrado a 15
+  "terminal.integrated.lineHeight": 1.0, // Establece la altura de línea del terminal integrado a 1.5
+  /**
+    * Find - Esta sección contiene configuraciones que ajustan el comportamiento de búsqueda en VS Code, excluyendo carpetas y archivos específicos para optimizar las búsquedas.
+    **/
+  "search.useIgnoreFiles": false, // No utilizar archivos .gitignore para excluir archivos de la búsqueda
+  //exludes fies & folders in search indexing
+  "search.exclude": {
+    "**/bower_components": true,
+    "**/env": true,
+    "**/venv": true,
+    // Excluir todo en /vendor, excepto las carpetas "laravel" y "livewire"
+    // Excluir todo en /public, excepto "index.php" "**/public/{[^i],?[^n]}*": true,
+    "**/node_modules": true, // Excluir la carpeta node_modules
+    "**/dist": true, // Excluir la carpeta dist (generalmente contiene archivos compilados)
+    "**/_ide_helper.php": true, // Excluir archivos de ayuda de IDE (como los generados por Laravel)
+    "**/composer.lock": true, // Excluir el archivo composer.lock
+    "**/package-lock.json": true, // Excluir el archivo package-lock.json
+    "storage": true, // Excluir la carpeta storage
+    ".phpunit.result.cache": true, // Excluir el caché de resultados de PHPUnit
+  },
+  //exludes fies & folders for watcher service
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/env/**": true,
+    "**/venv/**": true,
+    "env-*": true
+  },
+  /**
+    * Code - Esta sección contiene configuraciones para personalizar el comportamiento del editor de código y Emmet, así como asociaciones de archivos.
+    **/
+  // Incluye "-" en la selección de palabras
+  "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
+  "emmet.includeLanguages": { // Habilita Emmet en Blade, Vue-HTML y Vue
+    "blade": "html",
+    "vue-html": "html",
+    "vue": "html"
+  },
+  "files.associations": { // Asocia las extensiones .php_cs y .php_cs.dist con PHP
+    ".php_cs": "php",
+    ".php_cs.dist": "php",
+  },
+  /**
+    * PHP - Esta sección contiene configuraciones específicas para el lenguaje PHP.
+    **/
+  "php.suggest.basic": false, // Desactiva las sugerencias básicas de PHP para evitar conflictos con otras extensiones
+  /**
+    * PHP CS Fixer - Esta sección contiene configuraciones para el formateador de código PHP CS Fixer.
+    **/
+  // "[php]": { // Aplica estas configuraciones solo a archivos PHP
+  //     "editor.defaultFormatter": "junstyle.php-cs-fixer" // Establece PHP CS Fixer como el formateador predeterminado
+  // },
+  "php-cs-fixer.onsave": true, // Formatea automáticamente al guardar
+  "php-cs-fixer.showOutput": false, // No muestra la salida de PHP CS Fixer en el panel de salida
+  "php-cs-fixer.autoFixByBracket": false, // Desactiva la corrección automática al escribir un corchete
+  "php-cs-fixer.rules": "@PSR2", // Utiliza las reglas PSR2 para formatear el código
+  /**
+    * Prettier - Esta sección contiene configuraciones para el formateador de código Prettier.
+    **/
+  "[javascript]": { // Aplica estas configuraciones solo a archivos JavaScript
+    "editor.defaultFormatter": "esbenp.prettier-vscode", // Establece Prettier como el formateador predeterminado
+    "editor.formatOnSave": true // Formatea automáticamente al guardar
+  },
+  // task fix issue
+  "terminal.integrated.automationProfile.linux": {
+    "path": "/usr/bin/zsh",
+    "args": [
+      "-i"
+    ]
+  },
+  // whichkey extension
+  "whichkey.sortOrder": "customNonNumberFirst",
+  "whichkey.bindings": [
+    {
+      "key": " ",
+      "name": "Commands",
+      "type": "command",
+      "command": "workbench.action.showCommands"
+    },
+    {
+      "key": "a", // Abre el explorador de archivos
+      "name": "Ver en editor: Copilot",
+      "type": "command",
+      "command": "workbench.action.chat.openInEditor"
+    },
+    {
+      "key": "b", // Abre el explorador de archivos
+      "name": "Abrir Bunny :)",
+      "type": "command",
+      "command": "workbench.action.quickOpen",
+      "args": ">bunny "
+    },
+    {
+      "key": "c", // Abre el explorador de archivos
+      "name": "Ver panel: Copilot",
+      "type": "command",
+      "command": "workbench.panel.chat.view.copilot.focus"
+    },
+    {
+      "key": "e", // Abre el explorador de archivos
+      "name": "Ver panel: Explorador de archivos",
+      "type": "command",
+      "command": "workbench.view.explorer"
+    },
+    {
+      "key": "g", // Abre el panel de control de versiones (Git)
+      "name": "Ver panel: git",
+      "type": "command",
+      "command": "workbench.view.scm"
+    },
+    {
+      "key": "d",
+      "name": "Ver panel: debug",
+      "type": "command",
+      "command": "workbench.view.debug"
+    },
+    {
+      "key": "r",
+      "name": "Remplazar en todos los archivos",
+      "type": "command",
+      "command": "workbench.action.replaceInFiles"
+    },
+    {
+      "key": "s",
+      "name": "Ver panel: Buscar en archivos",
+      "type": "command",
+      "command": "workbench.action.findInFiles"
+    },
+    {
+      "key": "x",
+      "name": "Ver panel: extenciones",
+      "type": "command",
+      "command": "workbench.view.extensions"
+    },
+    {
+      "key": "t",
+      "name": "Terminal...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "1",
+          "name": "Toggle Terminal",
+          "type": "command",
+          "icon": "terminal",
+          "command": "workbench.action.togglePanel"
+        },
+        {
+          "key": "2",
+          "name": "Open new external terminal",
+          "icon": "terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.openNativeConsole"
+        },
+        {
+          "key": "3",
+          "name": "Show terminal",
+          "icon": "terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.focus"
+        },
+        {
+          "key": "4",
+          "name": "Show terminal as editor",
+          "icon": "terminal",
+          "type": "command",
+          "command": "workbench.action.terminal.new"
+        }
+      ]
+    },
+    {
+      "key": "m",
+      "name": "Make...",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "r",
+          "name": "Run",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Run Makefile Task"
+        },
+        {
+          "key": "t",
+          "name": "Test",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Run Pytest"
+        },
+        {
+          "key": "c",
+          "name": "Clean",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Clean Project"
+        },
+        {
+          "key": "i",
+          "name": "Install requeriments",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Install Dependencies"
+        },
+        {
+          "key": "v",
+          "name": "crear venv",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Create Virtual Environment"
+        },
+        {
+          "key": "d",
+          "name": "Delete venv",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Delete Virtual Environment"
+        },
+        {
+          "key": "u",
+          "name": "Upgrade pip",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "Upgrade_Pip"
+        },
+        {
+          "key": "l",
+          "name": "Lint",
+          "type": "command",
+          "command": "workbench.action.tasks.runTask",
+          "args": "make lint"
+        }
+      ]
+    }
+  ],
+  "prettier.requireConfig": true, // Requiere un archivo de configuración .prettierrc para ejecutar Prettier
+  "prettier.useEditorConfig": false, // No utiliza la configuración de .editorconfig para Prettier
+  /**
+    * Window Settings - Esta sección contiene configuraciones que ajustan la apariencia de la ventana de VS Code y algunos elementos de la interfaz de usuario.
+    **/
+  // Nota para usuarios de Windows:
+  // Desafortunadamente, "Full-bleed" no es posible en Windows.
+  // Lo mejor que puedes hacer es usar el estilo de ventana nativo de Windows
+  // y agregar estos selectores CSS para personalizarlo aún más.
+  "window.menuBarVisibility": "toggle", // Permite mostrar u ocultar la barra de menú
+  "customizeUI.stylesheet": { // Estilos personalizados para la interfaz de usuario
+    ".editor .title": "background: transparent !important;", // Fondo transparente para el título del editor
+    ".editor .title .label-container": "visibility: hidden;", // Ocultar la etiqueta del título del editor
+    // Ocultar los botones superiores derechos
+    ".editor .title .actions-container .action-item a": "visibility: hidden;",
+    // Mostrar el ícono de configuración en la parte superior derecha
+    ".editor .title .actions-container .action-item a[title=\"Open Settings (UI)\"]": "visibility: initial;",
+    ".editor .title .actions-container .action-item a[title=\"Open Settings (JSON)\"]": "visibility: initial;",
+    // Hacer que sea el ícono más a la derecha
+    ".editor .title .actions-container": "flex-direction: row-reverse;",
+    // Mostrar la barra de desplazamiento solo al pasar el cursor
+    ".editor .scrollbar .slider": "visibility: hidden",
+    ".editor .scrollbar:hover .slider": "visibility: initial",
+    // Cambiar el color del cursor
+    ".monaco-editor .cursor": "background: linear-gradient(to bottom, #7f00ff, #e100ff) !important; color: #292D3E !important"
+  },
+  "window.titleBarStyle": "native",
+  // // ############################################################################
+  // "editor.guides.indentation": false, // Desactiva las guías de sangría
+  // "workbench.activityBar.location": "top", // Oculta la barra de actividades
+  // "git.openRepositoryInParentFolders": "always", // Siempre abrir repositorios Git en carpetas padre
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "editor.tabSize": 2,
+  "cursor.cmdk.useThemedDiffBackground": true,
+  "cursor.cmdk.ghostTextAtSymbols": true,
+  "workbench.activityBar.location": "top",
+  "workbench.layoutControl.enabled": false,
+  "window.customTitleBarVisibility": "never",
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  // "[lua]": {
+  //   "editor.formatOnSave": true,
+  //   "editor.tabSize": 2,
+  //   "editor.insertSpaces": true,
+  //   "editor.detectIndentation": false,
+  //   "editor.defaultFormatter": "JohnnyMorganz.stylua",
+  // },
+  // "editor.autoClosingBrackets": "always",
+  // "editor.autoClosingQuotes": "always",
+  // "git.confirmSync": false,
+  // "git.autofetch": true,
+  // "git.enableSmartCommit": true,
+  // "security.workspace.trust.untrustedFiles": "open",
+  // // ### colores e iconos personalizados
+  // // #### de la terminal
+  // "terminal.integrated.fontFamily": "BitstreamVeraSansMono Nerd Font",
+  // "terminal.integrated.scrollback": 140,
+  // // "terminal.integrated.fontFamily": "CaskaydiaCove NF", // fuente de la terminal
+  // "[Log]": {
+  //   "editor.fontSize": 14
+  // },
+  // // ## 002 ## de la terminals ##################################
+  // "terminal.integrated.defaultLocation": "editor",
+  // "terminal.external.windowsExec": "C:\\Users\\saume\\AppData\\Local\\Microsoft\\WindowsApps\\wt.exe", // usa windows terminal en windows por default external
+  // "terminal.explorerKind": "external",
+  // "terminal.integrated.tabs.enabled": true,
+  // "terminal.integrated.smoothScrolling": true,
+  // "terminal.integrated.cursorBlinking": true,
+  // "terminal.integrated.copyOnSelection": true,
+  // "terminal.integrated.tabs.location": "right",
+  // "terminal.integrated.fontWeight": "normal",
+  // "terminal.integrated.tabs.enableAnimation": true,
+  // "terminal.integrated.customGlyphs": true,
+  // //
+  // "workbench.colorCustomizations": {
+  //   // Bracket pair colorizer
+  //   "editorBracketHighlight.foreground1": "#fafafa",
+  //   "editorBracketHighlight.foreground2": "#9F51B6",
+  //   "editorBracketHighlight.foreground3": "#F7C244",
+  //   "editorBracketHighlight.foreground4": "#F07850",
+  //   "editorBracketHighlight.foreground5": "#9CDD29",
+  //   "editorBracketHighlight.foreground6": "#0098FA",
+  //   "editorBracketHighlight.unexpectedBracket.foreground": "#ff0000",
+  //   //
+  //   "tab.activeBorderTop": "#eaeff3", // Active Tab Top Highlighting
+  //   "tab.activeBorder": "#ff0000",
+  //   "tab.activeBackground": "#ffffff20",
+  //   "tab.unfocusedActiveBorder": "#000000",
+  //   // "scrollbarSlider.background": "#ff0000",
+  //   "scrollbarSlider.hoverBackground": "#0088ff",
+  //   "editor.scrollbar.verticalScrollbarSize": 10,
+  //   "editor.scrollbar.horizontal": "visible",
+  //   "editor.scrollbar.horizontalScrollbarSize": 15,
+  //   "editor.lineHighlightBackground": "#1073cf2d",
+  //   "editor.lineHighlightBorder": "#9fced11f",
+  //   // "[Material Theme Darker]": {
+  //   "material-icon-theme.folders.associations": {
+  //     "infrastructure": "Cluster",
+  //     "stripe": "Resource",
+  //     "global_state": "global",
+  //     "ui": "Cluster",
+  //     "bloc": "Resource"
+  //   },
+  //   "[One Dark Pro Flat]": {
+  //     "foreground": "#959cbd",
+  //     "panelTitle.activeBorder": "#3d59a1",
+  //     "panelTitle.activeForeground": "#bdc7f0",
+  //     "panelTitle.inactiveForeground": "#959cbd",
+  //     "tab.activeForeground": "#bdc7f0",
+  //     "tab.inactiveForeground": "#959cbd",
+  //     "breadcrumb.foreground": "#959cbd",
+  //     "breadcrumb.focusForeground": "#bdc7f0",
+  //     "breadcrumb.activeSelectionForeground": "#bdc7f0",
+  //     "statusBar.foreground": "#bdc7f0",
+  //     "list.focusForeground": "#bdc7f0",
+  //     "list.hoverForeground": "#bdc7f0",
+  //     "list.activeSelectionForeground": "#bdc7f0",
+  //     "list.inactiveSelectionForeground": "#bdc7f0",
+  //     "list.inactiveSelectionBackground": "#202330",
+  //     "sideBar.foreground": "#959cbd",
+  //     "dropdown.foreground": "#959cbd",
+  //     "menu.foreground": "#bdc7f0",
+  //     "menubar.selectionForeground": "#bdc7f0",
+  //     "input.foreground": "#959cbd",
+  //     "input.placeholderForeground": "#959cbd",
+  //     "activityBar.foreground": "#bdc7f0",
+  //     "activityBar.inactiveForeground": "#787c99",
+  //     "gitDecoration.ignoredResourceForeground": "#696d87",
+  //     //
+  //     "editor.background": "#24283b",
+  //     "titleBar.inactiveBackground": "#eaeff3",
+  //     "statusBar.debuggingBackground": "#212121",
+  //     "activityBarBadge.background": "#FFA000",
+  //     "activityBar.activeBorder": "#FFA000",
+  //     // "list.activeSelectionForeground": "#FFA000",
+  //     // "list.inactiveSelectionForeground": "#FFA000",
+  //     "list.highlightForeground": "#FFA000",
+  //     "scrollbarSlider.activeBackground": "#FFA00050",
+  //     "editorSuggestWidget.highlightForeground": "#FFA000",
+  //     "textLink.foreground": "#FFA000",
+  //     "progressBar.background": "#FFA000",
+  //     "pickerGroup.foreground": "#FFA000",
+  //     "tab.activeBorder": "#FFA000",
+  //     "notificationLink.foreground": "#FFA000",
+  //     "editorWidget.resizeBorder": "#FFA000",
+  //     "editorWidget.border": "#FFA000",
+  //     "settings.modifiedItemIndicator": "#FFA000",
+  //     "settings.headerForeground": "#FFA000",
+  //     // "panelTitle.activeBorder": "#FFA000",
+  //     // "breadcrumb.activeSelectionForeground": "#FFA000",
+  //     "menu.selectionForeground": "#FFA000",
+  //     // "menubar.selectionForeground": "#FFA000",
+  //     "editor.findMatchBorder": "#FFA000",
+  //     "selection.background": "#FFA00040",
+  //     "statusBarItem.remoteBackground": "#FFA000",
+  //     "terminal.foreground": "#abb2bf",
+  //     "terminal.ansiBlack": "#1e2127",
+  //     "terminal.ansiBlue": "#61afef",
+  //     "terminal.ansiCyan": "#56b6c2",
+  //     "terminal.ansiGreen": "#98C379",
+  //     "terminal.ansiMagenta": "#c678dd",
+  //     "terminal.ansiRed": "#e06c75",
+  //     "terminal.ansiWhite": "#abb2bf",
+  //     "terminal.ansiYellow": "#d19a66",
+  //     "terminal.ansiBrightBlack": "#5c6370",
+  //     "terminal.ansiBrightBlue": "#61afef",
+  //     "terminal.ansiBrightCyan": "#56b6c2",
+  //     "terminal.ansiBrightGreen": "#98c379",
+  //     "terminal.ansiBrightMagenta": "#c678dd",
+  //     "terminal.ansiBrightRed": "#e06c75",
+  //     "terminal.ansiBrightWhite": "#ffffff",
+  //     "terminal.ansiBrightYellow": "#d19a66"
+  //   }
+  // },
+  // //Add following lines of code to exclude the files & folders which aren't important for watchers to look for changes...
+  // "workbench.iconTheme": "catppuccin-frappe",
+  // // siempre comenzar una sesion en blanco
+  // "window.restoreWindows": "none",
+  // "window.confirmSaveUntitledWorkspace": false,
+  // "[shellscript]": {
+  //   "editor.formatOnSave": true,
+  //   "editor.defaultFormatter": "foxundermoon.shell-format"
+  //   // "editor.defaultFormatter": "shakram02.bash-beautify"
+  // },
+  // // ## 002 ## Relacionados con el editor ####################################
+  // //  "editor.autoClosingBrackets": "always",
+  // "editor.autoClosingOvertype": "always",
+  // "editor.autoClosingDelete": "always",
+  // //  "editor.autoClosingQuotes": "always",
+  // "editor.inlineSuggest.enabled": true,
+  // "editor.formatOnSave": true,
+  // "editor.formatOnSaveMode": "file",
+  // "editor.formatOnPaste": true, // format text whenever its pasted into a file
+  // "editor.trimAutoWhitespace": true, // remove trailing auto inserted whitespace
+  // //  "editor.matchBrackets": "always", // highlight matching brackets when one of them is selected
+  // "editor.codeLens": true, // controls if the editor shows code lenses
+  // "editor.smoothScrolling": true, // controls whether the editor will scroll using an animation.
+  // "editor.cursorBlinking": "expand", // control the cursor blinking animation style
+  // "editor.cursorSurroundingLines": 15, //wtf dude
+  // "editor.cursorSmoothCaretAnimation": "on", // controls whether the smooth caret animation should be enabled.
+  // "editor.mouseWheelZoom": true, // zoom the font of the editor when using mouse wheel and holding Ctrl
+  // "editor.minimap.renderCharacters": false, //will disable minimap
+  // //  "editor.selectionHighlight": false,
+  // "editor.suggest.snippetsPreventQuickSuggestions": false,
+  // "editor.suggestSelection": "first",
+  // "editor.tabCompletion": "on",
+  // "editor.wordBasedSuggestions": "off",
+  // "editor.renderWhitespace": "none",
+  // "editor.cursorStyle": "block",
+  // //  "editor.colorDecorators": true,
+  // "editor.linkedEditing": true,
+  // "editor.tabSize": 2,
+  // "editor.wordWrap": "on",
+  // "editor.wordWrapColumn": 80,
+  // //
+  // // ## 002 ## Autoguardado de los archivos ##################################
+  // "files.autoSave": "afterDelay",
+  // "files.autoSaveDelay": 1000,
+  // "editor.rulers": [
+  //   2,
+  //   80,
+  //   100,
+  //   120
+  // ],
+  // "editor.minimap.autohide": true,
+  // "workbench.tree.enableStickyScroll": false,
+  // "workbench.editor.revealIfOpen": true,
+  // // --------------------------------Power Mode
+  // "powermode.combo.location": "off",
+  // "powermode.enabled": true,
+  // "powermode.explosions.duration": 300,
+  // "powermode.explosions.size": 5,
+  // "powermode.shake.enabled": false,
+  // "editor.guides.highlightActiveIndentation": "always",
+  // "[properties]": {
+  //   "editor.defaultFormatter": "yy0931.gitconfig-lsp"
+  // },
+  // "notebook.formatOnSave.enabled": true,
+  // "notebook.codeActionsOnSave": {
+  //   "notebook.source.fixAll": "explicit",
+  //   "notebook.source.organizeImports": "explicit",
+  //   "notebook.formatOnSave.enabled": true,
+  // },
+  // "[python]": {
+  //   "editor.tabSize": 4,
+  //   "editor.insertSpaces": true,
+  //   "editor.formatOnSave": true,
+  //   "editor.codeActionsOnSave": {
+  //     "source.fixAll": "explicit",
+  //     "source.organizeImports": "explicit",
+  //   },
+  //   "editor.defaultFormatter": "charliermarsh.ruff"
+  // },
+  // "pythonIndent.trimLinesWithOnlyWhitespace": true,
+  // "pythonIndent.useTabOnHangingIndent": true,
+  // "remote.SSH.remotePlatform": {
+  //   "coder-vscode.127.0.0.1--robertoliberadoflores--First--main": "linux"
+  // },
+  // "remote.SSH.connectTimeout": 1800,
+  // "emeraldwalk.runonsave": {
+  //   "autoClearConsole": true,
+  //   "commands": [
+  //     {
+  //       "match": ".sh",
+  //       "isAsync": true,
+  //       "cmd": "echo 'I run for all files.'"
+  //     },
+  //     {
+  //       "match": "\\.txt$",
+  //       "cmd": "echo 'I am a .txt file ${file}.'"
+  //     },
+  //     {
+  //       "match": "\\.js$",
+  //       "cmd": "echo 'I am a .js file ${file}.'"
+  //     },
+  //     {
+  //       "match": ".*",
+  //       "cmd": "echo 'I am ${env.USERNAME}.'"
+  //     }
+  //   ]
+  // },
+  // "graphite.gti.showInSidebar": false,
+  // "[dockerfile]": {
+  //   "editor.defaultFormatter": "foxundermoon.shell-format"
+  // },
+  // "cmake.options.statusBarVisibility": "visible",
+  // "python.testing.pytestEnabled": true,
+  // "python.testing.unittestEnabled": false,
+  // "python.testing.nosetestsEnabled": false,
+  // "python.testing.pytestArgs": [
+  //   "tests"
+  // ],
+  // "makefile.buildBeforeLaunch": false,
+  // "dev.containers.defaultExtensions": [
+  //   "mutantdino.resourcemonitor"
+  // ],
+  // "workbench.layoutControl.enabled": false
 }

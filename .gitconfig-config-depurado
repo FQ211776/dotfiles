@@ -23,8 +23,8 @@
 # Directorio raíz                                                              #
 # -----------------------------------------------------------------------------
 [ghq]
-    root = "~/.local/rf"         # Directorio raíz principal para GHQ
-    # root = "$HOME/Developments"            # Directorio raíz alternativo (comentado)
+    # root = "~/.local/rf"         # Directorio raíz principal para GHQ
+    root = "~/Dropbox/DevWorkspace"            # Directorio raíz alternativo (comentado)
 
 # -----------------------------------------------------------------------------
 # Repositorio específico (DotFiles)                                            #

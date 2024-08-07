@@ -1,6 +1,16 @@
 # -- ALIASES -------------------------------------------------------------------
 
+#thePrimeagen aliases
+bindkey -s ^f "tmux-sessionizer\n"
+alias xsc="xclip -selection clipboard" # cat archivo.txt | xsc
+alias cclip="xclip -selection clipboard"
+alias pclip="xclip -selection clipboard"
+alias my_ip="ip address | grep -o \"inet 192.*/\" | awk '{ print \$2 }' | tr / ' ' | xargs"
+
+
 # the most importants here
+alias dhello="docker run hello-world"
+alias pyact="source .venv/bin/activate"
 alias treed="gt -d"
 alias blue="redshift -P -O 4200 -b 0.8"
 alias notblue="redshift -x"
@@ -13,7 +23,17 @@ alias delf="dump -r"       # del folders
 alias delc="dump -c"       # permanently remove files from ../dump/trash
 alias delu="dump -u -f -s" #  undo/reset files from ../dump/trash
 alias ra="ranger"
-
+alias record_screen="ffmpeg \
+   -f x11grab \
+   -y \
+   -framerate 20 \
+   -s "$(xdpyinfo | grep dimensions | awk '{ print $2 }' )" \
+   -i :0.0 \
+   -c:v libx264 \
+   -preset superfast \
+   -crf 21 \
+   "$(date +'%Y-%m-%d_%H-%M-%S').mp4""
+# https://www.baeldung.com/linux/gif-screen-recording
 
 alias caca="cacafire"
 
@@ -51,7 +71,7 @@ dotbare_full_paths() {
     dotbare ls-files --full-name --directory "${DOTBARE_TREE}" | awk -v home="${DOTBARE_TREE}/" '{print home $0}'
   fi
 }
- 
+
 
 
 alias ds='dotbare s'       # git status

@@ -4,6 +4,97 @@ take() {
   mkdir -p $@ && cd ${@:$#}
 }
 
+
+# choose a folder to open with vs code, always starts at home directory
+ocode() {
+  folder=$(fd --type d --exclude node_modules . $HOME | fzf)
+
+  if [ -n "$folder" ];
+  then
+    code-insiders $folder
+  fi
+}
+
+######## thePrimeagen functions ########
+
+die () {
+# [ -f "nana" ] || die "El archivo $1 no existe."
+    echo >&2 "$@"
+    exit 1
+}
+
+addToPath() {
+    # verifica si esta en el path y si no lo agrega
+    # addToPath $HOME/.cargo/bin
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$PATH:$1
+    fi
+}
+
+addToPathFront() {
+    # addToPathFront /usr/local/bin
+    if [[ "$PATH" != *"$1"* ]]; then
+        export PATH=$1:$PATH
+    fi
+}
+
+
+catr() {
+  # Si deseas extraer las líneas 3 a 7, ejecutarías:
+  # catr 3 7 ejemplo.txt
+  # catr 3 7 <(cat /etc/passwd)
+    tail -n "+$1" $3 | head -n "$(($2 - $1 + 1))"
+}
+
+cat1Line() {
+    # muestra el archivo en una sola linea
+    # cat1Line /etc/passwd
+    cat $1 | tr -d "\n"
+
+}
+
+validateYaml() {
+  # Si deseas validar este archivo YAML, ejecutarías:
+  # validateYaml ejemplo.yaml
+  python -c 'import yaml,sys;yaml.safe_load(sys.stdin)' < $1
+}
+
+eslintify() {
+    # eslintify ejemplo.js
+    cat $1 > /tmp/file_to_eslint
+    npx eslint /tmp/file_to_eslint
+}
+
+
+addThrottle() {
+    # El dispositivo de red wlp59s0 puede variar segn tu configuración.
+    # Estas funciones asumen que la herramienta tc está instalada y disponible en tu sistema.
+    # simular que me esta fallando el internet a 100kbps
+    # addThrottle 100
+    local kbs="kbps"
+    echo $kbs
+    echo "About to throttle to $1 $kbs"
+    echo "sudo tc qdisc add dev wlp59s0 handle 1: root htb default 11"
+    echo "sudo tc class add dev wlp59s0 parent 1: classid 1:1 htb rate $1$kbs"
+    echo "sudo tc class add dev wlp59s0 parent 1:1 classid 1:11 htb rate $1$kbs"
+    sudo tc qdisc add dev wlp59s0 handle 1: root htb default 11
+    sudo tc class add dev wlp59s0 parent 1: classid 1:1 htb rate $1$kbs
+    sudo tc class add dev wlp59s0 parent 1:1 classid 1:11 htb rate $1$kbs
+}
+
+removeThrottle() {
+  #  simular que esta funcionando de nuevo
+    sudo tc qdisc del dev wlp59s0 root
+}
+
+
+
+
+
+######## thePrimeagen functions end ########
+
+
+
 _run_fm() {
   fm
   BUFFER=
@@ -68,4 +159,19 @@ function copypath {
   print -n "${file:a}" | clipcopy || return 1
 
   echo ${(%):-"%B${file:a}%b copied to clipboard."}
+}
+
+dockerdev() {
+  local HOST_USER=$(whoami)
+  local CONTAINER_USER="coder"
+
+  docker run --rm -it \
+    -v `pwd`:/developer \
+    -v /home/$HOST_USER/.ssh:/home/$CONTAINER_USER/.ssh:ro \
+    -v /home/$HOST_USER/.gnupg:/home/$CONTAINER_USER/.gnupg:ro \
+    -v /home/$HOST_USER/.gitconfig:/home/$CONTAINER_USER/.gitconfig:ro \
+    -v /home/$HOST_USER/.bash_history:/home/$CONTAINER_USER/.bash_history \
+    -e HOME=/home/$CONTAINER_USER \
+    --user $(id -u):$(id -g) \
+    ubuntu:robert $@
 }

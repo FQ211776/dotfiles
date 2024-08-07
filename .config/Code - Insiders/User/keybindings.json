@@ -1,7 +1,139 @@
+// | Tecla(s)              | Descripción                                                            | Contexto                                                                |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// | `alt+r`               | Ejecuta una tarea de Makefile                                          |                                                                         |
+// | `ctrl+r`              | Ejecuta una tarea de Pytest                                            |                                                                         |
+// | `shift+space`         | Muestra el menú de atajos de teclado                                   |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// | * Panels - Atajos de teclado para navegar y gestionar los paneles de VS Code.
+// |
+// | `ctrl+e`              | Enfoca el editor activo                                                |                                                                         |
+// | `ctrl+t`              | Alterna la visibilidad del terminal integrado                          |                                                                         |
+// | `ctrl+0`              | DEFAULT: Set focus to Sidebar                                          |                                                                         |
+// | `ctrl+1`              | DEFAULT: Set focus to EditorA                                          |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// | * Toggle Font Size and others
+// |
+// | `ctrl+k ctrl+k`       | Alterna la configuración de tamaño de fuente                           | `editorTextFocus`                                                       |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// | * File Explorer - Atajos de teclado para interactuar con el explorador de archivos.
+// |
+// | `ctrl+d`              | Duplica el archivo o carpeta seleccionado en el explorador de archivos | `explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus` |
+// | `ctrl+n`              | Crea un nuevo archivo en el explorador de archivos                     | `explorerViewletVisible && filesExplorerFocus && !inputFocus`           |
+// | `shift+ctrl+n`        | Crea una nueva carpeta en el explorador de archivos                    | `explorerViewletVisible && filesExplorerFocus && !inputFocus`           |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Fold/Unfold - Atajos para plegar y desplegar bloques de código.
+// |
+// | `shift+ctrl+[`        | Plegar (contraer) el bloque de código actual                           | `editorFocus`                                                           |
+// | `shift+ctrl+]`        | Desplegar (expandir) el bloque de código plegado actual                | `editorFocus`                                                           |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Line Manipulation - Atajos para manipular líneas de código.
+// |
+// | `ctrl+l`              | Duplicar la línea actual                                               | `editorTextFocus`                                                       |
+// | `ctrl+j`              | Unir la línea actual con la siguiente                                  | `editorTextFocus`                                                       |
+// | `ctrl+shift+backspace`| borrar la línea actual                                                 |                                                                         |
+// | `Alt + ↑ / ↓`         | DEFAULT: - mover una linea arriba o abajo - Ppuede mover bloques too   | `editorTextFocus`                                                       |
+// | `Ctrl+shift+ ↑ / ↓`   | DEFAULT: - Crear múltiples cursores para editar                        |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Multi-Cursor - Atajos para trabajar con múltiples cursores.
+// |
+// | `ctrl+backspace`      | Mover la selección al resultado de búsqueda anterior                   | `editorFocus && editorHasMultipleSelections`                            |
+// | `ctrl+k ctrl+d`       | Mover la selección al siguiente resultado de búsqueda                  | `editorFocus && editorHasMultipleSelections`                            |
+// | `ctrl+right`          | Agregar un cursor al final de cada línea seleccionada                  | `editorFocus && editorHasSelection`                                     |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Emmet - Atajos de teclado para trabajar con Emmet, una herramienta para escribir código HTML y CSS de forma más rápida.
+// |
+// | `ctrl+m ctrl+i`       | Seleccionar el contenido de la etiqueta HTML actual                    | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+o`       | Seleccionar la etiqueta HTML actual                                    | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+w`       | Envolver la selección actual con una etiqueta HTML                     | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+m`       | Mover el cursor a la etiqueta HTML correspondiente                     | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+e`       | Expandir la selección a la etiqueta HTML padre                         | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+r`       | Renombrar la etiqueta HTML actual                                      | `editorTextFocus`                                                       |
+// | `ctrl+m ctrl+backspace`| Eliminar la etiqueta HTML actual pero conservar su contenido          | `editorTextFocus`                                                       |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Split Panels - Atajos de teclado para dividir y gestionar paneles en el editor.
+// |
+// | `alt+w`               | Cerrar todos los paneles divididos y volver a un único editor          | `editorFocus`                                                           |
+// | `alt+n`               | Dividir el editor activo verticalmente                                 | `editorFocus`                                                           |
+// | `alt+l`               | Mover el foco al panel del editor a la derecha                         | `editorFocus`                                                           |
+// | `alt+h`               | Mover el foco al panel del editor a la izquierda                       | `editorFocus`                                                           |
+// | `alt+=`               | Aumentar el tamaño del panel del editor activo                         | `editorFocus`                                                           |
+// | `alt+-`               | Reducir el tamaño del panel del editor activo                          | `editorFocus`                                                           |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Terminal Split Panel - Atajos de teclado para dividir y gestionar paneles en el terminal integrado.
+// |
+// | `alt+n`               | Dividir verticalmente el panel del terminal activo                     | `terminalFocus`                                                         |
+// | `alt+l`               | Mover el foco al siguiente panel en el terminal                        | `terminalFocus`                                                         |
+// | `alt+h`               | Mover el foco al panel anterior en el terminal                         | `terminalFocus`                                                         |
+// | `alt+w`               | Cerrar el panel del terminal activo                                    | `terminalFocus`                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * amVim Finder Fix - Correcciones para el comportamiento de búsqueda al usar la extensión amVim.
+// |
+// | `enter`               | Avanzar a la siguiente coincidencia en el panel de búsqueda            | `findWidgetVisible`                                                     |
+// | `shift+enter`         | Retroceder a la coincidencia anterior en el panel de búsqueda          | `findWidgetVisible`                                                     |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Project Switching - Atajos de teclado para cambiar entre proyectos y ventanas de VS Code.
+// |
+// | `ctrl+;`              | Cambiar entre ventanas de proyecto abiertas                            | `! config.simple-project-switcher.present`                              |
+// | `alt+ctrl+right`      | Cambiar a la siguiente pestaña de ventana                              |                                                                         |
+// | `alt+ctrl+left`       | Cambiar a la pestaña de ventana anterior                               |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Open DevTools - Atajo de teclado para abrir o cerrar las herramientas de desarrollo del navegador integrado en VS Code.
+// |
+// | `alt+ctrl+i`          | Abrir o cerrar las herramientas de desarrollo del navegador integrado  |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * IntelliSense - Atajos de teclado para mejorar la navegación y el uso de IntelliSense en el editor.
+// |
+// | `ctrl+shift+r`        | Abrir el cuadro de diálogo "Mostrar todos los símbolos"                |                                                                         |
+// | `ctrl+k ctrl+enter`   | Saltar a la definición del símbolo en el que se encuentra el cursor    | `editorTextFocus`                                                       |
+// | `ctrl+k ctrl+i`       | Importar el espacio de nombres actual (solo para PHP)                  |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * Hide Toaster Notifications - Atajo de teclado para ocultar las notificaciones emergentes (toasters) en VS Code.
+// |
+// | `escape`              | Ocultar las notificaciones emergentes (toasters)                       | `notificationToastsVisible`                                             |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// |
+// | * HARPOON - el nirvana de la gestion de ventanas
+// |
+// | `shift+alt+1`         | Agregar el editor actual a la lista de editores rápidos (posición 1)   |                                                                         |
+// | `shift+alt+2`         | Agregar el editor actual a la lista de editores rápidos (posición 2)   |                                                                         |
+// | `shift+alt+3`         | Agregar el editor actual a la lista de editores rápidos (posición 3)   |                                                                         |
+// | `shift+alt+4`         | Agregar el editor actual a la lista de editores rápidos (posición 4)   |                                                                         |
+// | `shift+alt+5`         | Agregar el editor actual a la lista de editores rápidos (posición 5)   |                                                                         |
+// | `shift+alt+6`         | Agregar el editor actual a la lista de editores rápidos (posición 6)   |                                                                         |
+// | `alt+p`               | Editar la lista de editores rápidos                                    |                                                                         |
+// | `alt+q`               | Mostrar la lista de editores rápidos                                   |                                                                         |
+// | `alt+1`               | Ir al editor rápido en la posición 1                                   |                                                                         |
+// | `alt+2`               | Ir al editor rápido en la posición 2                                   |                                                                         |
+// | `alt+3`               | Ir al editor rápido en la posición 3                                   |                                                                         |
+// | `alt+4`               | Ir al editor rápido en la posición 4                                   |                                                                         |
+// | `alt+5`               | Ir al editor rápido en la posición 5                                   |                                                                         |
+// | `alt+6`               | Ir al editor rápido en la posición 6                                   |                                                                         |
+// | `alt+a`               | Agregar el editor actual a la lista de editores rápidos                |                                                                         |
+// | `alt+e`               | Editar la lista de editores rápidos                                    |                                                                         |
+// | `alt+p`               | Mostrar la lista de editores rápidos                                   |                                                                         |
+// | `ctrl+p+p             | DEFAULT: Jump to previous file --> hold control to open to the side    |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+// | * NIRVANA - Atajos de teclado para selección de texto y manipulación de comentarios.
+// |
+// | `ctrl+shift+right`    | Seleccionar contenido dentro de comillas dobles                        |                                                                         |
+// | `ctrl+f1`             | Seleccionar contenido dentro de los paréntesis más cercanos            |                                                                         |
+// | `ctrl+up`             | Expandir selección inteligente                                         |                                                                         |
+// | `ctrl+down`           | Reducir selección inteligente                                          |                                                                         |
+// | `ctrl+shift+/`        | Alternar visibilidad de los comentarios                                |                                                                         |
+// | `ctrl+shift+right`    | Deshabilitar atajo por defecto para seleccionar la palabra al final    |                                                                         |
+// |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
 [
-  /**
-     * Panels - Atajos de teclado para navegar y gestionar los paneles de VS Code.
-    */
   {
     "key": "alt+r",
     "command": "workbench.action.tasks.runTask",
@@ -13,25 +145,12 @@
     "args": "Run Pytest"
   },
   {
-    "key": "ctrl+k ctrl+e", // Abre el explorador de archivos
-    "command": "workbench.view.explorer"
+    "key": "shift+space",
+    "command": "whichkey.show"
   },
-  {
-    "key": "ctrl+k ctrl+g", // Abre el panel de control de versiones (Git)
-    "command": "workbench.view.scm"
-  },
-  {
-    "key": "ctrl+k ctrl+d", // Abre el panel de depuración
-    "command": "workbench.view.debug"
-  },
-  {
-    "key": "ctrl+k ctrl+x", // Abre el panel de extensiones
-    "command": "workbench.view.extensions"
-  },
-  {
-    "key": "ctrl+k ctrl+b", // Alterna la visibilidad de la barra lateral
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
+  // |
+  // | * Panels - Atajos de teclado para navegar y gestionar los paneles de VS Code.
+  // |
   {
     "key": "ctrl+e", // Enfoca el editor activo
     "command": "workbench.action.focusActiveEditorGroup"
@@ -40,56 +159,73 @@
     "key": "ctrl+t", // Alterna la visibilidad del terminal integrado
     "command": "workbench.action.terminal.toggleTerminal"
   },
-  /**
-    * Toggle Font Size - Atajo para cambiar entre dos tamaños de fuente predefinidos.
-    **/
+  // |
+  // | * Toggle Font Size and others
+  // |
   {
-    "key": "ctrl+k ctrl+k", // Activa el comando al presionar Ctrl+K dos veces
-    "command": "toggle", // Utiliza el comando "toggle" para alternar entre valores
-    "when": "editorTextFocus", // Solo se activa cuando el editor de texto tiene el foco
+    "key": "ctrl+k ctrl+k",
+    "command": "toggle",
+    "when": "editorTextFocus",
     "args": {
-      "id": "fontSize", // Identificador único para este conjunto de valores
-      "value": [ // Array con los valores a alternar
+      "id": "fontSize",
+      "value": [
         {
-          "editor.fontSize": 15, // Tamaño de fuente 15
-          "editor.lineHeight": 45 // Altura de línea 45 (espacio entre líneas)
+          "workbench.statusBar.visible": true, // Oculta la barra de estado (la barra inferior con información del archivo, idioma, etc.)
+          "breadcrumbs.enabled": true, // Desactiva la ruta de navegación (breadcrumbs)
+          "scm.diffDecorations": "all", // Default: none Desactiva las decoraciones de diferencias en el control de versiones
+          "editor.hover.enabled": true, // Desactiva las sugerencias al pasar el cursor sobre el código
+          "editor.matchBrackets": "always", // Desactiva el resaltado de paréntesis coincidentes
+          "workbench.tips.enabled": true, // Desactiva los consejos y sugerencias de VS Code
+          "editor.colorDecorators": true, // Desactiva los decoradores de colores (p. ej., colores de variables)
+          "git.decorations.enabled": true, // default: false Desactiva las decoraciones de Git (p. ej., cambios en archivos)
+          "workbench.startupEditor": "none", // No abre ningún editor al iniciar VS Code
+          "editor.lightbulb.enabled": "on", // Desactiva las sugerencias de bombillas (acciones rápidas)
+          "editor.selectionHighlight": true, // Desactiva el resaltado de otras ocurrencias de la palabra seleccionada
+          "editor.overviewRulerBorder": true, // Elimina el borde del minimapa
+          "editor.renderLineHighlight": "all", // Desactiva el resaltado de la línea actual
+          "editor.occurrencesHighlight": "singleFile", // Desactiva el resaltado de ocurrencias de palabras
+          "problems.decorations.enabled": true, // Desactiva las decoraciones de problemas (errores y advertencias)
+          "editor.renderControlCharacters": true, // Oculta los caracteres de control (p. ej., espacios, tabulaciones)
+          "editor.hideCursorInOverviewRuler": false, // Oculta el cursor en el minimapa
+          "editor.gotoLocation.multipleReferences": "goto", // Navega directamente a la primera referencia al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleDefinitions": "goto", // Navega directamente a la primera definición al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleDeclarations": "goto", // Navega directamente a la primera declaración al hacer clic en "Go to Definition"
+          "workbench.editor.enablePreviewFromQuickOpen": true, // Desactiva la vista previa en Quick Open
+          "editor.gotoLocation.multipleImplementations": "goto", // Navega directamente a la primera implementación al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleTypeDefinitions": "goto", // Navega directamente a la primera definición de tipo al hacer clic en "Go to Definition"
         },
         {
-          "editor.fontSize": 12, // Tamaño de fuente 12
-          "editor.lineHeight": 0 // Altura de línea predeterminada (0 restaura el valor por defecto)
+          "workbench.statusBar.visible": false, // Oculta la barra de estado (la barra inferior con información del archivo, idioma, etc.)
+          "breadcrumbs.enabled": false, // Desactiva la ruta de navegación (breadcrumbs)
+          "scm.diffDecorations": "all", // Default: none Desactiva las decoraciones de diferencias en el control de versiones
+          "editor.hover.enabled": false, // Desactiva las sugerencias al pasar el cursor sobre el código
+          "editor.matchBrackets": "never", // Desactiva el resaltado de paréntesis coincidentes
+          "workbench.tips.enabled": false, // Desactiva los consejos y sugerencias de VS Code
+          "editor.colorDecorators": false, // Desactiva los decoradores de colores (p. ej., colores de variables)
+          "git.decorations.enabled": true, // default: false Desactiva las decoraciones de Git (p. ej., cambios en archivos)
+          "workbench.startupEditor": "none", // No abre ningún editor al iniciar VS Code
+          "editor.lightbulb.enabled": "off", // Desactiva las sugerencias de bombillas (acciones rápidas)
+          "editor.selectionHighlight": false, // Desactiva el resaltado de otras ocurrencias de la palabra seleccionada
+          "editor.overviewRulerBorder": false, // Elimina el borde del minimapa
+          "editor.renderLineHighlight": "none", // Desactiva el resaltado de la línea actual
+          "editor.occurrencesHighlight": "off", // Desactiva el resaltado de ocurrencias de palabras
+          "problems.decorations.enabled": false, // Desactiva las decoraciones de problemas (errores y advertencias)
+          "editor.renderControlCharacters": false, // Oculta los caracteres de control (p. ej., espacios, tabulaciones)
+          "editor.hideCursorInOverviewRuler": true, // Oculta el cursor en el minimapa
+          "editor.gotoLocation.multipleReferences": "goto", // Navega directamente a la primera referencia al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleDefinitions": "goto", // Navega directamente a la primera definición al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleDeclarations": "goto", // Navega directamente a la primera declaración al hacer clic en "Go to Definition"
+          "workbench.editor.enablePreviewFromQuickOpen": false, // Desactiva la vista previa en Quick Open
+          "editor.gotoLocation.multipleImplementations": "goto", // Navega directamente a la primera implementación al hacer clic en "Go to Definition"
+          "editor.gotoLocation.multipleTypeDefinitions": "goto", // Navega directamente a la primera definición de tipo al hacer clic en "Go to Definition"
         }
       ]
     }
   },
-  /**
-    * Fold/Unfold - Atajos para plegar y desplegar bloques de código.
-    **/
-  {
-    "key": "shift+ctrl+[", // Plegar (contraer) el bloque de código actual o el bloque más interno que contenga el cursor.
-    "command": "editor.fold",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "shift+ctrl+]", // Desplegar (expandir) el bloque de código plegado actual o el bloque más externo que contenga el cursor.
-    "command": "editor.unfold",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  /**
-    * Line Manipulation - Atajos para manipular líneas de código.
-    **/
-  {
-    "key": "ctrl+l", // Duplicar la línea actual.
-    "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
-  },
-  {
-    "key": "ctrl+j", // Unir la línea actual con la siguiente.
-    "command": "editor.action.joinLines",
-    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
-  },
-  /**
-    * File Explorer - Atajos de teclado para interactuar con el explorador de archivos.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * File Explorer - Atajos de teclado para interactuar con el explorador de archivos.
+  // |
   {
     "key": "ctrl+d", // Duplicar el archivo o carpeta seleccionado en el explorador de archivos.
     "command": "duplicate.execute",
@@ -105,9 +241,48 @@
     "command": "explorer.newFolder",
     "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus" // Solo se activa cuando el explorador de archivos está visible, tiene el foco y no hay un input enfocado.
   },
-  /**
-    * Multi-Cursor - Atajos para trabajar con múltiples cursores.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Fold/Unfold - Atajos para plegar y desplegar bloques de código.
+  // |
+  {
+    "key": "shift+ctrl+[", // Plegar (contraer) el bloque de código actual o el bloque más interno que contenga el cursor.
+    "command": "editor.fold",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "shift+ctrl+]", // Desplegar (expandir) el bloque de código plegado actual o el bloque más externo que contenga el cursor.
+    "command": "editor.unfold",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Line Manipulation - Atajos para manipular líneas de código.
+  // |
+  {
+    "key": "ctrl+l", // Duplicar la línea actual.
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
+  },
+  {
+    "key": "ctrl+j", // Unir la línea actual con la siguiente.
+    "command": "editor.action.joinLines",
+    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
+  },
+  {
+    "key": "ctrl+shift+backspace",
+    "command": "editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Multi-Cursor - Atajos para trabajar con múltiples cursores.
+  // |
   {
     "key": "ctrl+backspace", // Mueve la selección al resultado de búsqueda anterior cuando hay múltiples selecciones activas.
     "command": "editor.action.moveSelectionToPreviousFindMatch",
@@ -123,65 +298,10 @@
     "command": "editor.action.insertCursorAtEndOfEachLineSelected",
     "when": "editorFocus && editorHasSelection" // Solo se activa cuando el editor tiene el foco y hay una selección.
   },
-  /**
-    * Split Panels - Atajos de teclado para dividir y gestionar paneles en el editor.
-    **/
-  {
-    "key": "alt+w", // Cierra todos los paneles divididos y vuelve a un único editor.
-    "command": "workbench.action.joinAllGroups",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "alt+n", // Divide el editor activo verticalmente, creando un nuevo panel a la derecha.
-    "command": "workbench.action.splitEditor",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "alt+l", // Mueve el foco al panel del editor a la derecha.
-    "command": "workbench.action.navigateRight",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "alt+h", // Mueve el foco al panel del edi tor a la izquierda.
-    "command": "workbench.action.navigateLeft",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "alt+=", // Aumenta el tamaño del panel del editor activo.
-    "command": "workbench.action.increaseViewSize",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  {
-    "key": "alt+-", // Reduce el tamaño del panel del editor activo.
-    "command": "workbench.action.decreaseViewSize",
-    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
-  },
-  /**
-    * Terminal Split Panel - Atajos de teclado para dividir y gestionar paneles en el terminal integrado.
-    **/
-  {
-    "key": "alt+n", // Divide verticalmente el panel del terminal activo.
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
-  },
-  {
-    "key": "alt+l", // Mueve el foco al siguiente panel en el terminal.
-    "command": "workbench.action.terminal.focusNextPane",
-    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
-  },
-  {
-    "key": "alt+h", // Mueve el foco al panel anterior en el terminal.
-    "command": "workbench.action.terminal.focusPreviousPane",
-    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
-  },
-  {
-    "key": "alt+w", // Cierra el panel del terminal activo.
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
-  },
-  /**
-    * Emmet - Atajos de teclado para trabajar con Emmet, una herramienta para escribir código HTML y CSS de forma más rápida.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Emmet - Atajos de teclado para trabajar con Emmet, una herramienta para escribir código HTML y CSS de forma más rápida.
+  // |
   {
     "key": "ctrl+m ctrl+i", // Selecciona el contenido de la etiqueta HTML actual.
     "command": "editor.emmet.action.balanceIn",
@@ -217,9 +337,68 @@
     "command": "editor.emmet.action.removeTag",
     "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
   },
-  /**
-    * amVim Finder Fix - Correcciones para el comportamiento de búsqueda al usar la extensión amVim.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Split Panels - Atajos de teclado para dividir y gestionar paneles en el editor.
+  // |
+  {
+    "key": "alt+w", // Cierra todos los paneles divididos y vuelve a un único editor.
+    "command": "workbench.action.joinAllGroups",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "alt+n", // Divide el editor activo verticalmente, creando un nuevo panel a la derecha.
+    "command": "workbench.action.splitEditor",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "alt+l", // Mueve el foco al panel del editor a la derecha.
+    "command": "workbench.action.navigateRight",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "alt+h", // Mueve el foco al panel del edi tor a la izquierda.
+    "command": "workbench.action.navigateLeft",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "alt+=", // Aumenta el tamaño del panel del editor activo.
+    "command": "workbench.action.increaseViewSize",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  {
+    "key": "alt+-", // Reduce el tamaño del panel del editor activo.
+    "command": "workbench.action.decreaseViewSize",
+    "when": "editorFocus" // Solo se activa cuando el editor tiene el foco.
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Terminal Split Panel - Atajos de teclado para dividir y gestionar paneles en el terminal integrado.
+  // |
+  {
+    "key": "alt+n", // Divide verticalmente el panel del terminal activo.
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
+  },
+  {
+    "key": "alt+l", // Mueve el foco al siguiente panel en el terminal.
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
+  },
+  {
+    "key": "alt+h", // Mueve el foco al panel anterior en el terminal.
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
+  },
+  {
+    "key": "alt+w", // Cierra el panel del terminal activo.
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus" // Solo se activa cuando el terminal tiene el foco.
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * amVim Finder Fix - Correcciones para el comportamiento de búsqueda al usar la extensión amVim.
+  // |
   {
     "key": "enter", // Avanza a la siguiente coincidencia en el panel de búsqueda cuando está visible.
     "command": "editor.action.nextMatchFindAction",
@@ -230,25 +409,10 @@
     "command": "editor.action.previousMatchFindAction",
     "when": "findWidgetVisible" // Solo se activa cuando el widget de búsqueda está visible.
   },
-  /**
-    * IntelliSense - Atajos de teclado para mejorar la navegación y el uso de IntelliSense en el editor.
-    */
-  {
-    "key": "ctrl+shift+r", // Abre el cuadro de diálogo "Mostrar todos los símbolos" para buscar símbolos en todos los archivos del proyecto.
-    "command": "workbench.action.showAllSymbols"
-  },
-  {
-    "key": "ctrl+k ctrl+enter", // Salta a la definición del símbolo en el que se encuentra el cursor (si existe).
-    "command": "editor.action.goToDeclaration",
-    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
-  },
-  {
-    "key": "ctrl+k ctrl+i", // Importa el espacio de nombres actual (solo para PHP).
-    "command": "namespaceResolver.import"
-  },
-  /**
-    * Project Switching - Atajos de teclado para cambiar entre proyectos y ventanas de VS Code.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Project Switching - Atajos de teclado para cambiar entre proyectos y ventanas de VS Code.
+  // |
   {
     "key": "ctrl+;", // Cambia entre ventanas de proyecto abiertas. Si la extensión "Simple Project Switcher" no está presente, utiliza el comando nativo de VS Code para cambiar de ventana.
     "command": "workbench.action.switchWindow",
@@ -262,25 +426,44 @@
     "key": "alt+ctrl+left", // Cambia a la pestaña de ventana anterior si tienes varias ventanas abiertas en pestañas.
     "command": "workbench.action.showPreviousWindowTab"
   },
-  /**
-    * Open DevTools - Atajo de teclado para abrir o cerrar las herramientas de desarrollo del navegador integrado en VS Code.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Open DevTools - Atajo de teclado para abrir o cerrar las herramientas de desarrollo del navegador integrado en VS Code.
+  // |
   {
     "key": "alt+ctrl+i", // Activa las herramientas de desarrollo al presionar Alt+Ctrl+I
     "command": "workbench.action.toggleDevTools"
   },
-  /**
-    * Hide Toaster Notifications - Atajo de teclado para ocultar las notificaciones emergentes (toasters) en VS Code.
-    **/
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * IntelliSense - Atajos de teclado para mejorar la navegación y el uso de IntelliSense en el editor.
+  // |
+  {
+    "key": "ctrl+shift+r", // Abre el cuadro de diálogo "Mostrar todos los símbolos" para buscar símbolos en todos los archivos del proyecto.
+    "command": "workbench.action.showAllSymbols"
+  },
+  {
+    "key": "ctrl+k ctrl+enter", // Salta a la definición del símbolo en el que se encuentra el cursor (si existe).
+    "command": "editor.action.goToDeclaration",
+    "when": "editorTextFocus" // Solo se activa cuando el editor de texto tiene el foco.
+  },
+  {
+    "key": "ctrl+k ctrl+i", // Importa el espacio de nombres actual (solo para PHP).
+    "command": "namespaceResolver.import"
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * Hide Toaster Notifications - Atajo de teclado para ocultar las notificaciones emergentes (toasters) en VS Code.
+  // |
   {
     "key": "escape", // Activa el comando al presionar la tecla Escape
     "command": "notifications.hideToasts", // Comando para ocultar las notificaciones
     "when": "notificationToastsVisible" // Condición: solo se activa cuando hay notificaciones visibles
   },
-  {
-    "key": "shift+space",
-    "command": "whichkey.show"
-  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * HARPOON - el nirvana de la gestion de ventanas
+  // |
   {
     "key": "shift+alt+1",
     "command": "-workbench.action.moveEditorToFirstGroup"
@@ -382,5 +565,54 @@
   {
     "key": "ctrl+r",
     "command": "-workbench.action.openRecent"
-  }
+  },
+  // |-----------------------|------------------------------------------------------------------------|-------------------------------------------------------------------------|
+  // |
+  // | * El nirvana de la gestion de ventanas
+  // |
+  {
+    "key": "ctrl+shift+right",
+    "command": "extension.selectDoubleQuote",
+    // dbankier.vscode-quick-select
+    //
+    // extension.selectSingleQuote
+    // extension.selectDoubleQuote
+    // extension.selectEitherQuote
+    // extension.switchQuotes
+    // extension.selectParenthesis
+    // extension.selectBackTick
+    // extension.selectSquareBrackets
+    // extension.selectCurlyBrackets
+    // extension.selectParenthesisOuter
+    // extension.selectSquareBracketsOuter
+    // extension.selectCurlyBracketsOuter
+    // extension.selectAngleBrackets
+    // extension.selectInTag
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+f1",
+    "command": "editor.action.selectToBracket"
+  },
+  {
+    "key": "ctrl+up",
+    "command": "editor.action.smartSelect.expand",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "editor.action.smartSelect.shrink",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+/",
+    "command": "hidecomments.toggle"
+    // eliostruyf.vscode-hide-comments
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "-cursorWordEndRightSelect",
+    "when": "textInputFocus && !accessibilityModeEnabled"
+  },
+  /// fin de el nirvana
 ]
